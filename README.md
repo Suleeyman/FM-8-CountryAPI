@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Submited on FM](https://your-solution-url.com)
-- Live Site URL: [Github Page](https://your-live-site-url.com)
+- Solution URL: [Submited on FM](https://www.frontendmentor.io/solutions/es6-class-intersectionobserver-js-module-localstorage-uCDn7nJvC)
+- Live Site URL: [Github Page](https://suleeyman.github.io/FM-8-CountryAPI)
 
 ## My process
 
@@ -46,6 +46,7 @@ Users should be able to:
 - LocalStorage API
 - Rest country API
 - JS ES6 class
+- IntersectionObserver
 
 ### What I learned
 
@@ -54,6 +55,7 @@ I learned:
   - How to use ES6 class in JS
   - Store data in the localStorage to be used on a new HTML Page
   - How to implement a Light/Dark mode dynamically
+  - Dynamic observer according to the screen
 
 ### Useful resources
 
