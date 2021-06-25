@@ -1,0 +1,6 @@
+@mixin container($horizontal: 32px) {
+    width: calc(100% - #{$horizontal});
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}

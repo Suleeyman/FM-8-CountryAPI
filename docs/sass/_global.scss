@@ -1,0 +1,14 @@
+@use "./variables" as *;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+
+body {
+    font-family: Nunito, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    padding-bottom: 100px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where in the world ? | Country API</title>
+    <link rel="stylesheet" href="./style/main.css">
+    <script defer type="module" src="./js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h3>Where in the world ?</h3>
+            <div class="switcher-content">
+                <input type="checkbox" id="theme-switcher">
+                <img class="moon-icon" src="./svg/light-mode.svg" alt="Light Moon icon">
+                <label for="theme-switcher">Dark mode</label>
+            </div>
+        </div>
+    </header>
+    <form action="./country.html" autocomplete="off" method="POST">
+        <div class="input-content">
+            <button type="submit" id="btn">
+                <img class="glass-icon" src="./svg/light-glass.svg" alt="Light magnifying glass">
+            </button>
+            <input type="text" id="country" name="country" placeholder="Search for a country...">
+        </div>
+        <button type="reset">Reset</button>
+        <div class="select">
+            <select name="region" id="region">
+                <option value="default" selected>Filter by Region</option>
+                <option value="africa">Africa</option>
+                <option value="americas">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+            </select>
+        </div>
+    </form>
+    <div class="countries"></div>
+    <footer>
+        Coded by
+        <a href="https://github.com/Suleeyman">Süleyman</a>
+    </footer>
+</body>
+</html>
