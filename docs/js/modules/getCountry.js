@@ -1,10 +1,14 @@
 async function getUniqueCountry(name) {
-    console.log('test');
     // https://restcountries.com/v2/name/{name}
     // https://restcountries.com/v3.1/name/${name}
-    const resp = await fetch(`https://restcountries.com/v3.1/name/${name}`)
-    const data = await resp.json()
-    return data;
+    try {
+        const resp = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+        const data = await resp.json()
+        return data;
+    } catch(err) {
+        console.log(err)
+        return undefined;
+    }
 }
 
 export { getUniqueCountry }

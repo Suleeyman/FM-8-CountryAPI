@@ -115,18 +115,26 @@ class App {
     }
 
     async _getCountriesRegion(region) {
-        const resp = await fetch(`https://restcountries.com/v3.1/region/${region}`);
-        const data = await resp.json()
-        this._insertInTheDom(data);
-        this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
+        try {
+            const resp = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+            const data = await resp.json()
+            this._insertInTheDom(data);
+            this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
+        } catch(err) {
+            console.log(err)
+        }
     }
 
     async _getAllCountries() {
-        const resp = await fetch('https://restcountries.com/v3.1/all');
-        const data = await resp.json()
-        // console.log(data);
-        this._insertInTheDom(data);
-        this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
+        try {
+            const resp = await fetch('https://restcountries.com/v3.1/all');
+            const data = await resp.json()
+            // console.log(data);
+            this._insertInTheDom(data);
+            this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     _insertInTheDom(obj) {
