@@ -115,15 +115,16 @@ class App {
     }
 
     async _getCountriesRegion(region) {
-        const resp = await fetch(`https://restcountries.eu/rest/v2/region/${region}`);
+        const resp = await fetch(`https://restcountries.com/v3.1/region/${region}`);
         const data = await resp.json()
         this._insertInTheDom(data);
         this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
     }
 
     async _getAllCountries() {
-        const resp = await fetch('https://restcountries.eu/rest/v2/all');
+        const resp = await fetch('https://restcountries.com/v3.1/all');
         const data = await resp.json()
+        // console.log(data);
         this._insertInTheDom(data);
         this._i < data.length ? this._numberOfScroll++ : this._observing = 0;
     }
@@ -132,10 +133,10 @@ class App {
         for(; this._i < this._base * this._numberOfScroll && this._i < obj.length; this._i++) {
             this._html =
                 `
-                <figure data-name="${obj[this._i].name}">
-                    <img src="${obj[this._i].flag}" alt="Flag of ${obj[this._i].name}">
+                <figure data-name="${obj[this._i].name.official}">
+                    <img src="${obj[this._i].flags.svg}" alt="Flag of: ${obj[this._i].name.official}">
                     <figcaption>
-                        <h3 class="country-name">${obj[this._i].name}</h3>
+                        <h3 class="country-name">${obj[this._i].name.common}</h3>
                         <ul>
                             <li>
                                 <u>Population:</u>

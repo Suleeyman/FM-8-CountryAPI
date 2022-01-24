@@ -12,8 +12,6 @@ class App {
         getUniqueCountry(this._currentCountry).then(data => this._insertInTheDom(data)) 
 
         theme.addEventListener('click', this._setLocalStorage)
-        
-
     }
 
     _getLocalStorage() {
@@ -38,15 +36,16 @@ class App {
 
     _insertInTheDom(data) {
         title.textContent = this._currentCountry
+        // console.log(data);
         const html = `
             <figure>
-            <img src="${data[0].flag}" alt="Flag of ${data[0].name}">
+            <img src="${data[0].flags.svg}" alt="Flag of ${data[0].name.official}">
             <figcaption>
-                <h3>${data[0].name}</h3>
+                <h3>${data[0].name.common}</h3>
                 <ul class="details">
                     <li>
                         <u>Native Name:</u>
-                        <span> ${data[0].nativeName}</span>
+                        <span> ${data[0].name.official}</span>
                     </li>
                     <li>
                         <u>Population:</u>
@@ -62,27 +61,27 @@ class App {
                     </li>
                     <li>
                         <u>Capital:</u>
-                        <span> ${data[0].capital}</span>
+                        <span> ${data[0].capital ? data[0].capital[0] : 'undefined'}</span>
                     </li>
                     <li>
                         <u>Top Level Domain:</u>
-                        <span> ${data[0].topLevelDomain.join(' ')}</span>
+                        <span> ${data[0].tld.join(' ')}</span>
                     </li>
                     <li>
                         <u>Currencies:</u>
-                        <span> ${data[0].currencies[0].name}</span>
+                        <span> ${data[0].currencies ? Object.keys(data[0].currencies).join(' ') : 'undefined'}</span>
                     </li>
                     <li>
                         <u>Languages:</u>
-                        <span> ${data[0].languages.reduce( (a,b) => {
-                            return a += b.name + ', '
-                        }, '').slice(0, -2)}
+                        
+                        <span> ${Object.values(data[0].languages).join(', ')}
                         </span>
+        
                     </li>
                 </ul>
                 <aside>
                     <h4>Border Countries:</h4>
-                    <ul>${this._createLiElement([...data[0].borders])}</ul>
+                    <ul>${data[0].borders ? this._createLiElement([...data[0].borders]) : 'none'}</ul>
                 </aside>
             </figcaption>
         </figure>
